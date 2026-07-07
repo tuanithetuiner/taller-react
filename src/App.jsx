@@ -114,6 +114,8 @@ function App() {
           </div>
         </div>
       )}
+
+      <p className="text-center text-gray-500 text-sm mt-8">Hecho por Jose Hevia</p>
     </div>
   )
 }
