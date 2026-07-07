@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
+import { statusColor, statusES, speciesES } from '../utils/translations'
 
 function ItemCard({ character, isFavorite, onToggleFavorite, onToggleBlock }) {
   const { name, image, status, species, location } = character
-
-
 
   return (
     <div className="relative bg-white rounded-xl overflow-hidden shadow border border-gray-200">
@@ -24,7 +23,10 @@ function ItemCard({ character, isFavorite, onToggleFavorite, onToggleBlock }) {
       <img src={image} alt={name} className="w-full h-40 object-cover" />
       <div className="p-3">
         <h3 className="font-bold text-gray-800 truncate">{name}</h3>
-        <p className="text-sm text-gray-500">{status} · {species}</p>
+        <div className="flex items-center gap-1.5 text-sm text-gray-500">
+          <span className={`inline-block w-2 h-2 rounded-full ${statusColor[status] ?? statusColor.unknown}`} />
+          {statusES[status] ?? status} · {speciesES[species] ?? species}
+        </div>
         <p className="text-xs text-gray-400 truncate">📍 {location?.name ?? 'Desconocida'}</p>
       </div>
     </div>
