@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useFetch } from './hooks/useFetch'
+import { useLocalStorage } from './hooks/useLocalStorage'
 import ItemList from './components/ItemList'
 import SearchBar from './components/SearchBar'
 import FavoritesPanel from './components/FavoritesPanel'
@@ -13,8 +14,8 @@ function App() {
   const characters = data?.results ?? []
 
   const [search, setSearch] = useState('')
-  const [favorites, setFavorites] = useState([])
-  const [blocked, setBlocked] = useState([])
+  const [favorites, setFavorites] = useLocalStorage('rm-favorites', [])
+  const [blocked, setBlocked] = useLocalStorage('rm-blocked', [])
 
   const filteredCharacters = useMemo(() => {
     return characters
@@ -33,20 +34,32 @@ function App() {
   )
 
   function toggleFavorite(id) {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
-    )
+    setFavorites((prev) => {
+      const updated = prev.includes(id)
+        ? prev.filter((favId) => favId !== id)
+        : [...prev, id]
+
+      console.log("Favoritos actualizados:", updated)
+      return updated
+    })
   }
 
   function toggleBlock(id) {
     setBlocked((prev) => {
       const yaBloqueado = prev.includes(id)
       if (yaBloqueado) {
-        return prev.filter((blockedId) => blockedId !== id)
+        const updated = prev.filter((blockedId) => blockedId !== id)
+        console.log("Bloqueados actualizados:", updated)
+        return updated
       }
-      // Si se bloquea un elemento que estaba en favoritos, se retira de favoritos.
-      setFavorites((favs) => favs.filter((favId) => favId !== id))
-      return [...prev, id]
+      setFavorites((favs) => {
+        const updatedFavs = favs.filter((favId) => favId !== id)
+        console.log("Favoritos actualizados (al bloquear):", updatedFavs)
+        return updatedFavs
+      })
+      const updatedBlocked = [...prev, id]
+      console.log("Bloqueados actualizados:", updatedBlocked)
+      return updatedBlocked
     })
   }
 

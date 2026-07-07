@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function ItemCard({ character, isFavorite, onToggleFavorite, onToggleBlock }) {
   const { name, image, status, species, location } = character
 
-  console.log("onToggleBlock recibido en ItemCard:", onToggleBlock)
+
 
   return (
     <div className="relative bg-white rounded-xl overflow-hidden shadow border border-gray-200">

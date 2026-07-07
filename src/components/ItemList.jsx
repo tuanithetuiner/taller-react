@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import ItemCard from './ItemCard'
 
 function ItemList({ characters, favorites, onToggleFavorite, onToggleBlock }) {
-  console.log("onToggleBlock recibido en ItemList:", onToggleBlock)
+  
 
   if (characters.length === 0) {
     return <p className="text-center text-gray-500 py-10">No se encontraron personajes.</p>
