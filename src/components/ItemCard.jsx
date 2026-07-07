@@ -5,7 +5,7 @@ function ItemCard({ character, isFavorite, onToggleFavorite, onToggleBlock }) {
   const { name, image, status, species, location } = character
 
   return (
-    <div className="relative bg-white rounded-xl overflow-hidden shadow border border-gray-200">
+    <div className="relative bg-[#121821] rounded-xl overflow-hidden border border-green-900/40 hover:border-green-500/50 transition-colors">
       <button
         onClick={() => onToggleFavorite(character.id)}
         className={`absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center text-lg ${
@@ -22,12 +22,12 @@ function ItemCard({ character, isFavorite, onToggleFavorite, onToggleBlock }) {
       </button>
       <img src={image} alt={name} className="w-full h-40 object-cover" />
       <div className="p-3">
-        <h3 className="font-bold text-gray-800 truncate">{name}</h3>
-        <div className="flex items-center gap-1.5 text-sm text-gray-500">
+        <h3 className="font-bold text-white truncate">{name}</h3>
+        <div className="flex items-center gap-1.5 text-sm text-gray-400">
           <span className={`inline-block w-2 h-2 rounded-full ${statusColor[status] ?? statusColor.unknown}`} />
           {statusES[status] ?? status} · {speciesES[species] ?? species}
         </div>
-        <p className="text-xs text-gray-400 truncate">📍 {location?.name ?? 'Desconocida'}</p>
+        <p className="text-xs text-gray-500 truncate">📍 {location?.name ?? 'Desconocida'}</p>
       </div>
     </div>
   )

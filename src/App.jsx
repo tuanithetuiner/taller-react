@@ -69,8 +69,12 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Personajes Rick and Morty</h1>
+     <div className="min-h-screen p-6">
+  <h1 className="text-3xl md:text-4xl font-bold text-center mb-1 text-white">
+    Portal <span className="text-green-400">Directorio</span>
+  </h1>
+  <p className="text-center text-gray-400 text-sm mb-6">Explora personajes de todo el multiverso</p>
+      
 
       {loading && <p className="text-center text-green-600">Cargando personajes...</p>}
       {error && <p className="text-center text-red-500">Error: {error}</p>}

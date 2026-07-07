@@ -1,1 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #1b2a1f 0%, #0b0f14 55%, #05070a 100%);
+  min-height: 100vh;
+  color: #e8eef2;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f14;
+}
+::-webkit-scrollbar-thumb {
+  background: #5f8a2f;
+  border-radius: 999px;
+}

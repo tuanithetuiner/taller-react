@@ -4,7 +4,7 @@ function FavoritesPanel({ favoriteCharacters, onToggleFavorite }) {
   console.log("Favoritos recibidos en FavoritesPanel:", favoriteCharacters)
 
   return (
-    <aside className="w-full lg:w-72 shrink-0 bg-white border border-gray-200 rounded-xl p-4 h-fit">
+    <aside className="bg-[#121821] border border-green-900/40 rounded-xl p-4 h-fit">
       <h2 className="font-bold text-yellow-500 mb-3">
         ★ Favoritos ({favoriteCharacters.length})
       </h2>
@@ -14,13 +14,16 @@ function FavoritesPanel({ favoriteCharacters, onToggleFavorite }) {
       ) : (
         <ul className="space-y-2">
           {favoriteCharacters.map((character) => (
-            <li key={character.id} className="flex items-center gap-2 bg-gray-50 rounded-lg p-2">
+            <li
+              key={character.id}
+              className="flex items-center gap-2 bg-[#1a202c] rounded-lg p-2 border border-green-900/30"
+            >
               <img
                 src={character.image}
                 alt={character.name}
                 className="w-9 h-9 rounded-full object-cover"
               />
-              <span className="text-sm flex-1 truncate">{character.name}</span>
+              <span className="text-sm flex-1 truncate text-white">{character.name}</span>
               <button
                 onClick={() => onToggleFavorite(character.id)}
                 className="text-gray-400 hover:text-red-500 text-sm"
@@ -41,3 +44,4 @@ FavoritesPanel.propTypes = {
 }
 
 export default FavoritesPanel
+
