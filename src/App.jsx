@@ -65,7 +65,7 @@ function App() {
 
   return (
     <div className="min-h-screen p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Portal Directorio</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Personajes rick and morty</h1>
 
       {loading && <p className="text-center text-green-600">Cargando personajes...</p>}
       {error && <p className="text-center text-red-500">Error: {error}</p>}
